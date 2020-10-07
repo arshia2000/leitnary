@@ -51,7 +51,7 @@ public class SplashView extends View {
 
         Paint paint = new Paint();
 
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.digicala_icon);
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.fg);
         int image_width = bitmap.getWidth();
         int image_height = bitmap.getHeight();
 
