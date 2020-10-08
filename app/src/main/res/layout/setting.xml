@@ -20,6 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:srcCompat="@drawable/ic_baseline_build_24"
+
             tools:layout_editor_absoluteX="126dp"
             tools:layout_editor_absoluteY="8dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>

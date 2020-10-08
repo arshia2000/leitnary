@@ -3,7 +3,10 @@ package com.avmhl.leitnary;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActionBar;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,9 +15,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.avmhl.leitnary.database.CardsDbHelper;
-import com.avmhl.leitnary.entity.Card;
 import com.avmhl.leitnary.ui.AddCard;
-import com.avmhl.leitnary.ui.setting;
+import com.avmhl.leitnary.ui.Setting;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         addCardButton = findViewById(R.id.btn_addcard);
         CardsDbHelper cardsDbHelper = new CardsDbHelper(MainActivity.this);
         // cardsDbHelper.insert(new Card(0,"",""," ","fjfj","fjf","fhfj","","","","",""));
+
         Toast.makeText(MainActivity.this, "job done", Toast.LENGTH_LONG).show();
     }
 
@@ -55,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.order_badge: {
-                Intent intent = new Intent(MainActivity.this, setting.class);
+                Intent intent = new Intent(MainActivity.this, Setting.class);
                 startActivity(intent);
                 break;
             }

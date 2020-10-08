@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.avmhl.leitnary.R;
 
-public class setting extends AppCompatActivity
+public class Setting extends AppCompatActivity
 {
 
 

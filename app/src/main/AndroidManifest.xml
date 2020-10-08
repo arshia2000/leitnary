@@ -15,6 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.AddCard"></activity>
+        <activity android:name=".ui.Setting"></activity>
         <activity android:name=".ui.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

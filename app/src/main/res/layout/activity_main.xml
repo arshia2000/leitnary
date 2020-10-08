@@ -9,14 +9,66 @@
 
    <Button
        android:id="@+id/btn_addcard"
-       android:layout_width="300dp"
-       android:layout_height="100dp"
+       android:layout_width="230dp"
+       android:layout_height="45dp"
        android:onClick="addCardClick"
+       android:layout_toRightOf="@+id/sh_card_counter"
+       android:layout_marginLeft="40dp"
        android:layout_centerHorizontal="true"
        android:text="Add Card"
+       android:background="@drawable/custom_button_add_note"
+       android:textSize="20sp"
        android:layout_marginTop="100dp">
 
    </Button>
+
+
+   <Button
+       android:id="@+id/sh_card_counter"
+       android:layout_width="100dp"
+       android:layout_height="120dp"
+       android:layout_centerHorizontal="true"
+       android:text="0"
+       android:background="@drawable/custom_button_card_count"
+       android:textSize="25sp"
+       android:layout_marginTop="100dp"
+       android:layout_alignParentLeft="true"
+       android:layout_marginLeft="30dp">
+
+   </Button>
+
+   <Button
+       android:id="@+id/btn_add_note"
+       android:layout_width="230dp"
+       android:layout_height="45dp"
+       android:layout_below="@+id/btn_addcard"
+       android:onClick="addCardClick"
+       android:layout_toRightOf="@+id/sh_card_counter"
+       android:layout_marginLeft="40dp"
+       android:layout_centerHorizontal="true"
+       android:text="Add Note"
+       android:background="@drawable/custom_button_add_note"
+       android:textSize="20sp"
+       android:layout_marginTop="20dp">
+
+   </Button>
+
+
+   <Button
+       android:id="@+id/btn_review"
+       android:layout_width="400dp"
+       android:layout_height="45dp"
+       android:onClick="addCardClick"
+       android:layout_marginLeft="40dp"
+       android:layout_centerHorizontal="true"
+       android:text="review cards"
+       android:layout_centerInParent="true"
+       android:background="@drawable/custom_button_review"
+       android:textSize="20sp"
+       android:layout_marginTop="200dp">
+
+   </Button>
+
 
 
 

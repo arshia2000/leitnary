@@ -1,58 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     tools:context=".ui.AddCard">
     
-    
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <TextView
+        android:id="@+id/tv_qu_ask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Question"
+        android:layout_marginTop="15dp"
+        android:textSize="30sp"
+        android:layout_centerHorizontal="true"></TextView>
+
+
+    <Button
+        android:id="@+id/tv_add_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add new Group"
+        android:layout_below="@+id/tv_qu_ask"
+        android:layout_toRightOf="@+id/tv_qu_ask"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/custom_button_add_note"
+        android:textSize="15sp"
+        android:layout_centerHorizontal="true"></Button>
+
+
+    <Button
+        android:id="@+id/tv_choose_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose a group"
+        android:layout_below="@+id/tv_qu_ask"
+        android:layout_toLeftOf="@+id/tv_qu_ask"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/custom_button_add_note"
+        android:textSize="15sp"
+        android:layout_centerHorizontal="true"></Button>
+
+
+<EditText
+    android:id="@+id/et_text_editor"
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
+    android:hint=" Type question ..."
+    android:layout_below="@+id/tv_add_group"
+    android:layout_marginTop="20dp"
+    android:gravity="top"
+    android:background="@drawable/custom_edit_text_editor"></EditText>
+
+
+<ImageView
+    android:id="@+id/img_take_pic"
+    android:layout_width="60dp"
+    android:layout_height="60dp"
+    android:layout_below="@id/et_text_editor"
+    android:src="@drawable/addpicture"
+    android:layout_marginLeft="125dp"
+    android:layout_marginTop="30dp"></ImageView>
+
     <ImageView
-        android:id="@+id/img_take_pic"
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:layout_weight="1"
-        >
-    </ImageView>
-
-    <Button
-        android:id="@+id/btn_take_pic"
-        android:layout_below="@+id/img_take_pic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:id="@+id/img_record_voice"
+        android:layout_width="60dp"
+        android:layout_toRightOf="@+id/img_take_pic"
+        android:layout_marginLeft="50dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/et_text_editor"
+        android:src="@drawable/voicerecorder"
         android:layout_centerHorizontal="true"
-        android:text="add picture"
-        android:onClick="takePicClick"
-        ></Button>
+        android:layout_marginTop="30dp"></ImageView>
 
-    <Button
-        android:id="@+id/btn_save_pic"
-        android:layout_below="@+id/btn_take_pic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+    <ImageView
+        android:id="@+id/img_img1"
+        android:layout_width="70dp"
+        android:layout_toRightOf="@+id/img_take_pic"
+        android:layout_marginLeft="15dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/img_take_pic"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/voicerecorder"
         android:layout_centerHorizontal="true"
-        android:text="save picture"
-        android:onClick="takesaveClick"
-        ></Button>
+        android:layout_marginTop="45dp"></ImageView>
+
+    <ImageView
+        android:id="@+id/img_img2"
+        android:layout_width="70dp"
+        android:layout_toRightOf="@+id/img_img1"
+        android:layout_marginLeft="20dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/img_take_pic"
+        android:src="@drawable/voicerecorder"
+        android:layout_marginTop="45dp"></ImageView>
+
+    <ImageView
+        android:id="@+id/img_img3"
+        android:layout_width="70dp"
+        android:layout_toRightOf="@+id/img_img2"
+        android:layout_marginLeft="20dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/img_take_pic"
+        android:src="@drawable/voicerecorder"
+        android:layout_marginTop="45dp"></ImageView>
+
+    <ImageView
+        android:id="@+id/img_voice"
+        android:layout_width="70dp"
+        android:layout_toRightOf="@+id/img_img2"
+        android:layout_marginLeft="15dp"
+        android:layout_height="70dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/img_img1"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/voicerecorder"
+        android:layout_marginTop="45dp"></ImageView>
 
 
-    <Button
-        android:id="@+id/btn_load_pic"
-        android:layout_below="@+id/btn_save_pic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true"
-        android:text="save picture"
-        android:onClick="takeloadClick"
-        ></Button>
+
+  <Button
+      android:id="@+id/btn_save"
+      android:layout_width="300dp"
+      android:layout_height="60dp"
+      android:layout_below="@+id/img_voice"
+      android:layout_centerHorizontal="true"
+      android:text="save"
+      android:textSize="25sp"
+      android:onClick="saveButtonClick"
+      android:background="@drawable/custom_button_card_count"
+      android:layout_marginBottom="20dp"></Button>
 
 
-    
-    
-    
+
 
 </RelativeLayout>
+
+
+
+    
+    
+    
+
+</ScrollView>
