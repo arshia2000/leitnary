@@ -37,8 +37,6 @@ public class Setting extends AppCompatActivity {
         textView2 = findViewById(R.id.text_font);
         button1 = findViewById(R.id.btn_fa);
         button2 = findViewById(R.id.btn_en);
-        button3 = findViewById(R.id.btn_darck);
-        button4 = findViewById(R.id.btn_whait);
         button5 = findViewById(R.id.btn_apply);
         seekBar = findViewById(R.id.seek);
 
@@ -63,4 +61,14 @@ public class Setting extends AppCompatActivity {
 
     }
 
+    public void def(View view)
+    {
+        SharedPreferences share = getSharedPreferences ( "share",MODE_PRIVATE );
+        SharedPreferences.Editor edit = share.edit ();
+        edit.putString ( Save.color_text,"#000000" );
+        edit.putString ( Save.color_back,"#FFFFFF" );
+        edit.putString ( Save.text_size,"0");
+        edit.putString(Save.language,"persian");
+
+    }
 }
