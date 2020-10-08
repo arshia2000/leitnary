@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.avmhl.leitnary.R;
 import com.avmhl.leitnary.sharedPreferences.Save;
 
-public class setting extends AppCompatActivity {
+public class Setting extends AppCompatActivity {
 
     Button button1, button2, button3, button4, button5;
     SeekBar seekBar;
