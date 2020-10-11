@@ -69,6 +69,7 @@ public class Setting extends AppCompatActivity {
         edit.putString ( Save.color_back,"#FFFFFF" );
         edit.putString ( Save.text_size,"0");
         edit.putString(Save.language,"persian");
+        edit.putString(Save.carte,"2");
 
     }
 }
