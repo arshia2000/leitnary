@@ -3,10 +3,8 @@ package com.avmhl.leitnary;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ActionBar;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,10 +13,12 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.avmhl.leitnary.database.CardsDbHelper;
+import com.avmhl.leitnary.ui.Save;
 import com.avmhl.leitnary.ui.AddCard;
 import com.avmhl.leitnary.ui.Setting;
 
 public class MainActivity extends AppCompatActivity {
+
 
 
     Button addCardButton;
@@ -68,4 +68,17 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+    public void fdefgdiufh(View view)
+    {
+
+        SharedPreferences share = getSharedPreferences("share", MODE_PRIVATE);
+        SharedPreferences.Editor edit = share.edit();
+        edit.putString(Save.color_back,"#FFFFFFF");
+        edit.putString(Save.color_text,"color");
+        edit.putString(Save.language,"language");
+        edit.putString(Save.text_size,"sdewad");
+        edit.putString(Save.share,"share");
+        edit.putString(Save.cart,"6");
+        edit.commit ();
     }
+}
