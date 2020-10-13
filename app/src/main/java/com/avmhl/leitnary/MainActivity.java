@@ -13,7 +13,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.avmhl.leitnary.database.CardsDbHelper;
-import com.avmhl.leitnary.ui.Save;
+import com.avmhl.leitnary.information.Page_one;
+import com.avmhl.leitnary.sharedPreferences.Save;
 import com.avmhl.leitnary.ui.AddCard;
 import com.avmhl.leitnary.ui.Setting;
 
@@ -68,17 +69,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-    public void fdefgdiufh(View view)
+    public void ds(View view)
     {
-
-        SharedPreferences share = getSharedPreferences("share", MODE_PRIVATE);
-        SharedPreferences.Editor edit = share.edit();
-        edit.putString(Save.color_back,"#FFFFFFF");
-        edit.putString(Save.color_text,"color");
-        edit.putString(Save.language,"language");
-        edit.putString(Save.text_size,"sdewad");
-        edit.putString(Save.share,"share");
-        edit.putString(Save.cart,"6");
-        edit.commit ();
+        Intent intent = new Intent(MainActivity.this, Page_one.class);
+        startActivity(intent);
     }
 }

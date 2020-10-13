@@ -1,4 +1,4 @@
-package com.avmhl.leitnary.ui;
+package com.avmhl.leitnary.sharedPreferences;
 
 public class Save
 {
@@ -8,6 +8,8 @@ public class Save
     public static final String text_size = "text_size";
     public static final String language = "language";
     public static final String cart = "5";
+    public static final String information = "yes";
+
 
 
 

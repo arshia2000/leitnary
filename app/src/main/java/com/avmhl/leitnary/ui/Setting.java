@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.avmhl.leitnary.R;
+import com.avmhl.leitnary.sharedPreferences.Save;
 
 public class Setting extends AppCompatActivity {
 
