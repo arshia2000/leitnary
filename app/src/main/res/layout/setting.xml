@@ -147,15 +147,15 @@
     <androidx.constraintlayout.widget.ConstraintLayout
 
         android:id="@+id/constraintLayout4"
-        android:layout_width="247dp"
-        android:layout_height="298dp"
+        android:layout_width="202dp"
+        android:layout_height="290dp"
         android:background="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.042"
         tools:ignore="MissingConstraints">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -242,17 +242,17 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="168dp"
-        android:layout_height="45dp"
+        android:layout_width="118dp"
+        android:layout_height="39dp"
         android:text="تعداد کارت "
         android:textColor="#FFFFFF"
         android:textSize="25sp"
         app:layout_constraintBottom_toTopOf="@+id/text_halat"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.883"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toEndOf="@+id/pluse"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout4"
-        app:layout_constraintVertical_bias="0.522" />
+        app:layout_constraintVertical_bias="0.627" />
 
     <TextView
         android:id="@+id/carteee"
