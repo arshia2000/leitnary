@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.avmhl.leitnary.database.CardsDbHelper;
 import com.avmhl.leitnary.information.Page_one;
 import com.avmhl.leitnary.sharedPreferences.Save;
+import com.avmhl.leitnary.start.Loading_splash;
 import com.avmhl.leitnary.ui.AddCard;
 import com.avmhl.leitnary.ui.Setting;
 
@@ -22,15 +23,35 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    String check;
+
     Button addCardButton;
 
     @Override
+
+
+
     protected void onCreate(Bundle savedInstanceState) {
+
+        SharedPreferences share = getSharedPreferences ( "share",MODE_PRIVATE );
+        if(share.contains ( Save.color_text )) {
+            String emtehan = share.getString ( Save.information , "" );
+
+            if(emtehan =="" )
+            {
+                Intent intent = new Intent ( MainActivity.this, Page_one.class);
+                startActivity ( intent );
+            }else
+            {
+                return;
+            }
+
+
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         init();
-
 
     }
 
@@ -71,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void ds(View view)
     {
-        Intent intent = new Intent(MainActivity.this, Page_one.class);
+        Intent intent = new Intent(MainActivity.this, Loading_splash.class);
         startActivity(intent);
     }
 }

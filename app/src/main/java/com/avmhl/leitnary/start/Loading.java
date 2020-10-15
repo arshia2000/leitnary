@@ -2,6 +2,7 @@ package com.avmhl.leitnary.start;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.animation.Animation;
@@ -11,7 +12,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.avmhl.leitnary.MainActivity;
 import com.avmhl.leitnary.R;
+import com.avmhl.leitnary.ui.Splash;
 
 public class Loading extends Animation {
 
@@ -30,10 +33,24 @@ public class Loading extends Animation {
         this.to=to;
     }
 
+
     @Override
     protected void applyTransformation(float interpolatedTime, Transformation t) {
         super.applyTransformation(interpolatedTime, t);
         float value = from + (to - from) * interpolatedTime;
+        progressBar.setProgress((int)value);
+        textView.setText((int)value+"%");
+        if(value==to)
+       {
+
+       // context.startActivity(new Intent(context,MainActivity.class));
+
+
+
+
+        }
 
     }
+
+
 }
