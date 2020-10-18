@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.avmhl.leitnary.database.CardsDbHelper;
-import com.avmhl.leitnary.information.Page_one;
+
 import com.avmhl.leitnary.sharedPreferences.Save;
 import com.avmhl.leitnary.start.Loading_splash;
 import com.avmhl.leitnary.ui.AddCard;
@@ -33,21 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
 
-        SharedPreferences share = getSharedPreferences ( "share",MODE_PRIVATE );
-        if(share.contains ( Save.color_text )) {
-            String emtehan = share.getString ( Save.information , "" );
 
-            if(emtehan =="" )
-            {
-                Intent intent = new Intent ( MainActivity.this, Page_one.class);
-                startActivity ( intent );
-            }else
-            {
-                return;
-            }
-
-
-        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -82,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.order_badge: {
                 Intent intent = new Intent(MainActivity.this, Setting.class);
                 startActivity(intent);
+
                 break;
             }
 

@@ -8,7 +8,7 @@ public class Save
     public static final String text_size = "text_size";
     public static final String language = "language";
     public static final String cart = "5";
-    public static final String information = "information";
+
 
 
 }

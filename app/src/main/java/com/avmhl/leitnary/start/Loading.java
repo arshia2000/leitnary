@@ -2,19 +2,10 @@ package com.avmhl.leitnary.start;
 
 
 import android.content.Context;
-import android.content.Intent;
-import android.content.res.Resources;
-import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.avmhl.leitnary.MainActivity;
-import com.avmhl.leitnary.R;
-import com.avmhl.leitnary.ui.Splash;
 
 public class Loading extends Animation {
 

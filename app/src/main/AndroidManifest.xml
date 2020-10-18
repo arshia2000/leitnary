@@ -13,8 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-        </activity>
+        <activity android:name=".information.WelcomeActivity"></activity>
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".information.Page_three" />
         <activity android:name=".information.Page_two" />
         <activity android:name=".information.Page_one" />
@@ -27,7 +27,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.Splash" />
     </application>
 
 </manifest>

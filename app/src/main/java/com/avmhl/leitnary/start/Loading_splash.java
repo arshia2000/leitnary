@@ -12,7 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.avmhl.leitnary.MainActivity;
 import com.avmhl.leitnary.R;
-import com.avmhl.leitnary.information.Page_one;
+
+import com.avmhl.leitnary.information.WelcomeActivity;
 import com.avmhl.leitnary.sharedPreferences.Save;
 
 public class Loading_splash extends AppCompatActivity {
@@ -20,9 +21,7 @@ public class Loading_splash extends AppCompatActivity {
     ProgressBar progressBar;
     TextView textView;
 
-  //  SharedPreferences share = getSharedPreferences("share", MODE_PRIVATE);
-  //  SharedPreferences.Editor edit = share.edit();
- //   String infor = share.getString(Save.cart, "");
+
 
     @Override
     public void onBackPressed() {
@@ -55,9 +54,9 @@ public class Loading_splash extends AppCompatActivity {
             public void onFinish() {
 
 
-                        Intent intent = new Intent(Loading_splash.this, MainActivity.class);
+                        Intent intent = new Intent(Loading_splash.this, WelcomeActivity.class);
                         startActivity(intent);
-
+                         finish();
             }
         }.start();
 
