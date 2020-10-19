@@ -10,33 +10,21 @@ import androidx.annotation.Nullable;
 
 import com.avmhl.leitnary.entity.Card;
 
-public class CardsDbHelper extends BaseDbHelper {
+public class CategoryDbHelper extends BaseDbHelper{
 
 
-
-    public CardsDbHelper(@Nullable Context context) {
+    public CategoryDbHelper(@Nullable Context context) {
         super(context);
     }
 
 
-    public long insert(Card product) {
+
+    public long insert(String cat) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-       // cv.put(FIELD_ID, product.getId());
-        cv.put(FIELD_ORDER, product.getOrder());
-        cv.put(FIELD_GROUP, product.getGroup());
-        cv.put(QUESTION_TEXT, product.getQustion_text());
-        cv.put(QUESTION_IMG_1, product.getQustion_image1());
-        cv.put(QUESTION_IMG_2, product.getQustion_image2());
-        cv.put(QUESTION_IMG_3, product.getAnswer_img3());
-        cv.put(QUESTION_VOICE, product.getQustion_voice());
-        cv.put(ANSWER_TEXT, product.getAnswer_text());
-        cv.put(ANSWER_IMG_1, product.getAnswer_img1());
-        cv.put(ANSWER_IMG_2, product.getAnswer_img2());
-        cv.put(ANSWER_IMG_3, product.getAnswer_img3());
-        cv.put(ANSWER_VOICE, product.getAnswer_voice());
+        cv.put(CATEGORY, cat);
 
-        long row = db.insert(TABLE_NAME_Card, null, cv);
+        long row = db.insert(TABLE_NAME_CATEGORY, null, cv);
         Log.e(BaseDbHelper.class.getSimpleName(), "insert");
         db.close();
         cv.clear();
@@ -46,12 +34,11 @@ public class CardsDbHelper extends BaseDbHelper {
     }
 
 
-
     public Card selectByid(int id) {
 
 
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(TABLE_NAME_Card, new String[]{FIELD_ID, FIELD_GROUP, FIELD_ORDER, QUESTION_TEXT, QUESTION_IMG_1, QUESTION_IMG_2, QUESTION_IMG_3,QUESTION_VOICE, ANSWER_TEXT, ANSWER_IMG_1, ANSWER_IMG_2,ANSWER_IMG_3,ANSWER_VOICE}, "id=?", new String[]{String.valueOf(id)}, null, null, null);
+        Cursor cursor = db.query(TABLE_NAME_Card, new String[]{FIELD_ID,CATEGORY}, "id=?", new String[]{String.valueOf(id)}, null, null, null);
         if (cursor.getCount() > 0) {
 
             while (cursor.moveToNext()) {
@@ -70,7 +57,7 @@ public class CardsDbHelper extends BaseDbHelper {
                 String answervoice = cursor.getString(12);
 
 
-               Card card = new Card(group,order,qusestext, qustimg1, questimg2, questimg3, questvoice,answertext,answerimg1,answerimg2,answerimg3,answervoice);
+                Card card = new Card(group,order,qusestext, qustimg1, questimg2, questimg3, questvoice,answertext,answerimg1,answerimg2,answerimg3,answervoice);
 
                 return card;
 
@@ -81,8 +68,6 @@ public class CardsDbHelper extends BaseDbHelper {
         cursor.close();
         return null;
     }
-
-
 
 
 

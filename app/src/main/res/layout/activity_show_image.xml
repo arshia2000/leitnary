@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.ShowImage">
+
+
+    <ImageView
+        android:id="@+id/img_show"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:onClick="ImageClick"
+        ></ImageView>
+
+    <Button
+        android:id="@+id/btn_delete_img"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:text="Delete Image"
+        android:background="@drawable/custom_button_review"
+        android:textColor="#FFFFFF"
+        android:alpha="0"
+        android:onClick="deleteClick"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="645dp"></Button>
+
+
+</RelativeLayout>

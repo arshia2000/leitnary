@@ -50,79 +50,135 @@
 
 
 <EditText
-    android:id="@+id/et_text_editor"
+    android:id="@+id/et_text_editor_ans"
     android:layout_width="match_parent"
-    android:layout_height="400dp"
-    android:hint=" Type question ..."
-    android:layout_below="@+id/tv_add_group"
+    android:layout_height="250dp"
+    android:hint=" Type answer ..."
+    android:layout_below="@+id/chor_voice_qu"
     android:layout_marginTop="20dp"
     android:gravity="top"
     android:background="@drawable/custom_edit_text_editor"></EditText>
 
 
 <ImageView
-    android:id="@+id/img_take_pic"
+    android:id="@+id/img1_ans"
     android:layout_width="60dp"
+    android:onClick="img1Ans"
+    android:scaleType="fitXY"
     android:layout_height="60dp"
-    android:layout_below="@id/et_text_editor"
+    android:layout_below="@id/et_text_editor_ans"
     android:src="@drawable/addpicture"
-    android:layout_marginLeft="125dp"
+    android:layout_marginLeft="60dp"
     android:layout_marginTop="30dp"></ImageView>
 
     <ImageView
-        android:id="@+id/img_record_voice"
+        android:id="@+id/img2_ans"
         android:layout_width="60dp"
-        android:layout_toRightOf="@+id/img_take_pic"
+        android:layout_toRightOf="@+id/img1_ans"
         android:layout_marginLeft="50dp"
+        android:onClick="img2Ans"
+        android:scaleType="fitXY"
         android:layout_height="60dp"
-        android:layout_below="@id/et_text_editor"
-        android:src="@drawable/voicerecorder"
+        android:layout_below="@id/et_text_editor_ans"
+        android:src="@drawable/addpicture"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"></ImageView>
 
     <ImageView
-        android:id="@+id/img_img1"
-        android:layout_width="70dp"
-        android:layout_toRightOf="@+id/img_take_pic"
-        android:layout_marginLeft="15dp"
-        android:layout_height="70dp"
-        android:layout_below="@id/img_take_pic"
-        android:layout_alignParentLeft="true"
-        android:src="@drawable/voicerecorder"
+        android:id="@+id/img3_ans"
+        android:layout_width="60dp"
+        android:layout_toRightOf="@+id/img2_ans"
+        android:layout_marginLeft="50dp"
+        android:layout_height="60dp"
+        android:onClick="img3Ans"
+        android:scaleType="fitXY"
+        android:layout_below="@id/et_text_editor_ans"
+        android:src="@drawable/addpicture"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="45dp"></ImageView>
+        android:layout_marginTop="30dp"></ImageView>
 
     <ImageView
-        android:id="@+id/img_img2"
-        android:layout_width="70dp"
-        android:layout_toRightOf="@+id/img_img1"
-        android:layout_marginLeft="20dp"
-        android:layout_height="70dp"
-        android:layout_below="@id/img_take_pic"
-        android:src="@drawable/voicerecorder"
-        android:layout_marginTop="45dp"></ImageView>
+        android:id="@+id/im_voice_ans"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/img2_ans"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/record_button"
+        android:onClick="recorAns"
+        android:layout_marginTop="30dp"></ImageView>
+
+
+
+
+    <EditText
+        android:id="@+id/et_text_editor"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:hint=" Type question ..."
+        android:layout_below="@+id/tv_add_group"
+        android:layout_marginTop="20dp"
+        android:gravity="top"
+        android:background="@drawable/custom_edit_text_editor"></EditText>
+
 
     <ImageView
-        android:id="@+id/img_img3"
-        android:layout_width="70dp"
-        android:layout_toRightOf="@+id/img_img2"
-        android:layout_marginLeft="20dp"
-        android:layout_height="70dp"
-        android:layout_below="@id/img_take_pic"
-        android:src="@drawable/voicerecorder"
-        android:layout_marginTop="45dp"></ImageView>
+        android:id="@+id/img1_qu"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:onClick="img1Qu"
+        android:scaleType="fitXY"
+        android:layout_below="@id/et_text_editor"
+        android:src="@drawable/addpicture"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="30dp"></ImageView>
+
 
     <ImageView
-        android:id="@+id/img_voice"
-        android:layout_width="70dp"
-        android:layout_toRightOf="@+id/img_img2"
-        android:layout_marginLeft="15dp"
-        android:layout_height="70dp"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@id/img_img1"
-        android:layout_marginBottom="20dp"
-        android:src="@drawable/voicerecorder"
-        android:layout_marginTop="45dp"></ImageView>
+        android:id="@+id/img2_qu"
+        android:layout_width="60dp"
+        android:layout_toRightOf="@+id/img1_qu"
+        android:layout_marginLeft="50dp"
+        android:onClick="img2Qu"
+        android:scaleType="fitXY"
+        android:layout_height="60dp"
+        android:layout_below="@id/et_text_editor"
+        android:src="@drawable/addpicture"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"></ImageView>
+
+    <ImageView
+        android:id="@+id/img3_qu"
+        android:layout_width="60dp"
+        android:layout_toRightOf="@+id/img2_qu"
+        android:layout_marginLeft="50dp"
+        android:onClick="img3Qu"
+        android:layout_height="60dp"
+        android:scaleType="fitXY"
+        android:layout_below="@id/et_text_editor"
+        android:src="@drawable/addpicture"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"></ImageView>
+
+    <ImageView
+        android:id="@+id/im_voice_qu"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/img1_qu"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/record_button"
+        android:onClick="recordQu"
+        android:layout_marginTop="30dp"></ImageView>
+
+
+    <TextView
+        android:id="@+id/tv_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FF0000"
+        android:textSize="19sp"
+        android:layout_below="@id/im_voice_ans"
+        android:layout_marginTop="30dp"
+        ></TextView>
 
 
 
@@ -130,13 +186,35 @@
       android:id="@+id/btn_save"
       android:layout_width="300dp"
       android:layout_height="60dp"
-      android:layout_below="@+id/img_voice"
+      android:layout_below="@+id/tv_error"
       android:layout_centerHorizontal="true"
       android:text="save"
       android:textSize="25sp"
+      android:layout_marginTop="30dp"
       android:onClick="saveButtonClick"
       android:background="@drawable/custom_button_card_count"
       android:layout_marginBottom="20dp"></Button>
+
+
+<Chronometer
+    android:id="@+id/chor_voice_qu"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/im_voice_qu"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="15dp"
+    android:textSize="20sp"></Chronometer>
+
+
+    <Chronometer
+        android:id="@+id/chor_voice_ans"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/im_voice_ans"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:textSize="20sp"></Chronometer>
+
 
 
 
