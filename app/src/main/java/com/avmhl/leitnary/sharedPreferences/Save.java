@@ -7,6 +7,7 @@ public class Save
     public static final String color_back = "color_back";
     public static final String text_size = "text_size";
     public static final String language = "language";
+    public static final String cart = "5";
 
 
 

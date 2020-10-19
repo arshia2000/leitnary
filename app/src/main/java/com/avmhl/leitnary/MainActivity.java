@@ -3,10 +3,8 @@ package com.avmhl.leitnary;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ActionBar;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,21 +13,31 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.avmhl.leitnary.database.CardsDbHelper;
+
+import com.avmhl.leitnary.sharedPreferences.Save;
+import com.avmhl.leitnary.start.Loading_splash;
 import com.avmhl.leitnary.ui.AddCard;
 import com.avmhl.leitnary.ui.Setting;
 
 public class MainActivity extends AppCompatActivity {
 
 
+
+    String check;
+
     Button addCardButton;
 
     @Override
+
+
+
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         init();
-
 
     }
 
@@ -60,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.order_badge: {
                 Intent intent = new Intent(MainActivity.this, Setting.class);
                 startActivity(intent);
+
                 break;
             }
 
@@ -68,4 +77,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+    public void ds(View view)
+    {
+        Intent intent = new Intent(MainActivity.this, Loading_splash.class);
+        startActivity(intent);
     }
+}
