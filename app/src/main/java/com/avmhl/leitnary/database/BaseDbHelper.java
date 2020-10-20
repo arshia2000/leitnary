@@ -9,9 +9,10 @@ import androidx.annotation.Nullable;
 public class BaseDbHelper extends SQLiteOpenHelper {
 
     static final String DATABASE_NAME = "leitnary";
-    static final String TABLE_NAME_CATEGORY= "categorytable";
+    static final String TABLE_NAME_CATEGORY= "cattable";
     static final String TABLE_NAME_Card = "cards";
     static final int DATA_BASE_VERSION = 1;
+    static final String CATEGORY_COLOR = "colorcat";
     static final String FIELD_ID = "id";
     static final String FIELD_ORDER = "orders";
     static final String FIELD_GROUP = "groups";
@@ -60,11 +61,11 @@ public class BaseDbHelper extends SQLiteOpenHelper {
         db.execSQL(query);
     }
 
-    public void creattableCategory(SQLiteDatabase db) {
+    public void creattableCategory(SQLiteDatabase db1) {
 
 
-        String query = "create table if not exists " + TABLE_NAME_CATEGORY + " ( " + FIELD_ID + " integer primary key , " + CATEGORY + " varchar(60))";
-        db.execSQL(query);
+        String query1 = "create table if not exists " + TABLE_NAME_CATEGORY + " ( " + FIELD_ID + " integer primary key , " + CATEGORY + "  varchar(100) , " + CATEGORY_COLOR + " integer )";
+        db1.execSQL(query1);
     }
 
 

@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <shape android:shape="rectangle"
     xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <solid android:color="#E3D6D5"></solid>
-    <stroke android:color="#FFFFFF" android:width="5dp"></stroke>
-    <corners android:radius="20dp"></corners>
+    <solid android:color="#FFFFFF"></solid>
+
+
+    <gradient android:startColor="@color/purple2" android:endColor="#2E2E2E"></gradient>
 
     <padding android:top="10dp" android:right="10dp"  android:left="10dp" android:bottom="10dp"></padding>
 

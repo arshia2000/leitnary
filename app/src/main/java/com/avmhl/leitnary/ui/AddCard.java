@@ -2,6 +2,7 @@ package com.avmhl.leitnary.ui;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -14,6 +15,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.BitmapDrawable;
 import android.media.Image;
 import android.media.MediaPlayer;
@@ -25,20 +27,28 @@ import android.os.Environment;
 import android.os.SystemClock;
 import android.provider.MediaStore;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.avmhl.leitnary.MainActivity;
 import com.avmhl.leitnary.R;
+import com.avmhl.leitnary.adapter.CategoryListAdapter;
 import com.avmhl.leitnary.database.BaseDbHelper;
 import com.avmhl.leitnary.database.CardsDbHelper;
+import com.avmhl.leitnary.database.CategoryDbHelper;
 import com.avmhl.leitnary.entity.Card;
+import com.avmhl.leitnary.entity.Category;
 import com.avmhl.leitnary.helpclass.Plate;
+import com.madrapps.pikolo.ColorPicker;
+import com.madrapps.pikolo.listeners.SimpleColorSelectionListener;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
@@ -47,14 +57,17 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URI;
+import java.util.ArrayList;
 
 public class AddCard extends AppCompatActivity {
 
 
-    ImageView photoImageView, img1_ans, img2_ans, img3_ans, img_voice_ans, img1_qu, img2_qu, img3_qu, img_voice_qu;
+    ImageView photoImageView, img1_ans, img2_ans, img3_ans, img_voice_ans, img1_qu, img2_qu, img3_qu, img_voice_qu,im_color_show;
     EditText et_textEditor_qu, et_textEditor_ans;
-    TextView tv_question_ask, tv_error;
-    Button takePicButton, savePic, loadPic, btn_save;
+    TextView tv_question_ask, tv_error,tv_get_category_alert;
+    Button takePicButton, savePic, loadPic, btn_save,btn_category_alert,btn_category_alert_cancel;
+    ListView lv_category;
+    ColorPicker colorPicker_alert;
     Chronometer chronometer_qu, chronometer_ans;
     MediaRecorder myRecorder;
     File dir, dir1, dir2, dir3;
@@ -62,12 +75,22 @@ public class AddCard extends AppCompatActivity {
     MediaPlayer myPlayer;
     Chronometer chorqu,chorans;
     int duration;
+    AlertDialog categorydialog;
+   public AlertDialog choosecategorydialog;
+
+  public String category;
+
+
+    CategoryListAdapter categoryListAdapter;
 
     OutputStream outputStream;
+
+    CategoryDbHelper categoryDbHelper;
 
     String[] imgNames;
     String voiceName_qu = "", voiceName_ans = "", ImagName = "", groupName = "", errotext = "";
 
+    int colorpic;
 
     int cardState = 0, number = 7;
 
@@ -88,6 +111,9 @@ public class AddCard extends AppCompatActivity {
 
         init();
         takePermision();
+        alertinit_creat_category();
+        alertinit_choose_category();
+
         //tv_question_ask.setTextSize(18);
         //tv_question_ask.setText(makeCardAddress(1,"salam.jpg"));
         //  btn_save.seton
@@ -113,8 +139,10 @@ public class AddCard extends AppCompatActivity {
 
         initUi();
         cardsDbHelper = new CardsDbHelper(AddCard.this);
-
+        categoryDbHelper=new CategoryDbHelper(AddCard.this);
         imgNames = new String[]{"", "", "","","",""};
+        category="";
+
 
 
 
@@ -707,5 +735,115 @@ public class AddCard extends AppCompatActivity {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+    }
+
+    private void alertinit_creat_category(){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(AddCard.this);
+        View customview = LayoutInflater.from(AddCard.this).inflate(R.layout.add_category, null);
+        builder.setView(customview);
+        builder.setCancelable(true);
+        categorydialog = builder.create();
+        categorydialog.setView(customview);
+        tv_get_category_alert=(TextView)customview.findViewById(R.id.tv_category);
+        colorPicker_alert=customview.findViewById(R.id.rgb_category);
+        im_color_show=customview.findViewById(R.id.im_category_logo);
+        btn_category_alert=(Button)customview.findViewById(R.id.btn_accept_category);
+       btn_category_alert_cancel=(Button)customview.findViewById(R.id.btn_alert_cancel);
+
+        colorPicker_alert.setColorSelectionListener(new SimpleColorSelectionListener() {
+            @Override
+            public void onColorSelected(int color) {
+                // Do whatever you want with the color
+                im_color_show.setBackgroundColor(color);
+                colorpic=color;
+            }
+        });
+
+        btn_category_alert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                if(tv_get_category_alert.length()<=100) {
+                    String cat_name = tv_get_category_alert.getText().toString();
+                    float row = categoryDbHelper.insert(cat_name, colorpic);
+                 //   Toast.makeText(AddCard.this, String.valueOf(row), Toast.LENGTH_SHORT).show();
+                    categorydialog.dismiss();
+                }else {
+
+                    Toast.makeText(AddCard.this,"category name is too long.",Toast.LENGTH_SHORT).show();
+                    tv_get_category_alert.setText("");
+                }
+
+
+
+            }
+        });
+
+        btn_category_alert_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                categorydialog.dismiss();
+
+            }
+        });
+
+
+
+
+    }
+
+    private void alertinit_choose_category(){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(AddCard.this);
+        View customview = LayoutInflater.from(AddCard.this).inflate(R.layout.choose_category, null);
+        builder.setView(customview);
+        builder.setCancelable(true);
+        choosecategorydialog = builder.create();
+        choosecategorydialog.setView(customview);
+        lv_category=customview.findViewById(R.id.lv_categories);
+        ArrayList<Category> categories=new ArrayList<>();
+        categories=categoryDbHelper.selectall();
+        CategoryListAdapter categoryListAdapter=new CategoryListAdapter(AddCard.this,categories);
+        lv_category.setAdapter(categoryListAdapter);
+
+
+
+
+        lv_category.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Category cat=(Category) parent.getItemAtPosition(position);
+                category=cat.getCategory();
+                choosecategorydialog.dismiss();
+                Toast.makeText(AddCard.this,category,Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+
+
+
+    }
+
+
+
+
+    public void addgroupclick(View view) {
+
+
+        categorydialog.show();
+
+
+
+    }
+
+    public void choosecatclick(View view) {
+
+        choosecategorydialog.show();
     }
 }

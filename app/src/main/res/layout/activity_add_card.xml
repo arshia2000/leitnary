@@ -5,11 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".ui.AddCard">
     
 <RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/theme_purple_dark"
+    >
 
 
 
@@ -27,6 +30,7 @@
         android:id="@+id/tv_add_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="addgroupclick"
         android:text="Add new Group"
         android:layout_below="@+id/tv_qu_ask"
         android:layout_toRightOf="@+id/tv_qu_ask"
@@ -40,6 +44,7 @@
         android:id="@+id/tv_choose_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="choosecatclick"
         android:text="Choose a group"
         android:layout_below="@+id/tv_qu_ask"
         android:layout_toLeftOf="@+id/tv_qu_ask"
@@ -57,7 +62,7 @@
     android:layout_below="@+id/chor_voice_qu"
     android:layout_marginTop="20dp"
     android:gravity="top"
-    android:background="@drawable/custom_edit_text_editor"></EditText>
+    android:background="@drawable/theme_purple"></EditText>
 
 
 <ImageView
@@ -118,7 +123,7 @@
         android:layout_below="@+id/tv_add_group"
         android:layout_marginTop="20dp"
         android:gravity="top"
-        android:background="@drawable/custom_edit_text_editor"></EditText>
+        android:background="@drawable/them_blue_pink"></EditText>
 
 
     <ImageView
