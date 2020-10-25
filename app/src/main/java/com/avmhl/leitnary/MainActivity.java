@@ -2,6 +2,7 @@ package com.avmhl.leitnary;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,18 +15,20 @@ import android.widget.Toast;
 
 import com.avmhl.leitnary.database.CardsDbHelper;
 
+import com.avmhl.leitnary.menu.add;
+import com.avmhl.leitnary.menu.other;
+import com.avmhl.leitnary.menu.review;
 import com.avmhl.leitnary.sharedPreferences.Save;
 import com.avmhl.leitnary.start.Loading_splash;
 import com.avmhl.leitnary.ui.AddCard;
 import com.avmhl.leitnary.ui.Setting;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
 
 
-    String check;
-
-    Button addCardButton;
+    private BottomNavigationView bottomNavigationView;
 
     @Override
 
@@ -36,50 +39,32 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        init();
+        bottomNavigationView=findViewById(R.id.bottomNav);
+        bottomNavigationView.setOnNavigationItemSelectedListener(bottonNavMetod);
+getSupportFragmentManager().beginTransaction().replace(R.id.container,new review()).commit();
 
     }
 
-    private void init() {
-        addCardButton = findViewById(R.id.btn_addcard);
-        CardsDbHelper cardsDbHelper = new CardsDbHelper(MainActivity.this);
-        // cardsDbHelper.insert(new Card(0,"",""," ","fjfj","fjf","fhfj","","","","",""));
+    private BottomNavigationView.OnNavigationItemSelectedListener bottonNavMetod= new
+            BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                    Fragment fragment=null;
 
-        Toast.makeText(MainActivity.this, "job done", Toast.LENGTH_LONG).show();
-    }
-
-    public void addCardClick(View view) {
-        Intent intent = new Intent(MainActivity.this, AddCard.class);
-        startActivity(intent);
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
-        switch (item.getItemId()) {
-            case R.id.order_badge: {
-                Intent intent = new Intent(MainActivity.this, Setting.class);
-                startActivity(intent);
-
-                break;
-            }
-
-        }
-            return super.onOptionsItemSelected(item);
-        }
-
-
-    public void ds(View view)
-    {
-        Intent intent = new Intent(MainActivity.this, Loading_splash.class);
-        startActivity(intent);
-    }
+                   switch (menuItem.getItemId())
+                   {
+                       case R.id.review:
+                           fragment=new review();
+                           break;
+                       case R.id.add:
+                           fragment=new add();
+                           break;
+                       case R.id.other:
+                           fragment=new other();
+                           break;
+                   }
+                   getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment).commit();
+                    return true;
+                }
+            };
 }

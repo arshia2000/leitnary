@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
+  >
 
     <item
-        android:id="@+id/order_badge"
-        app:showAsAction="always"
-       android:icon="@drawable/ic_baseline_settings_24"
-        android:title="TODO" />
+
+        android:id="@+id/review"
+
+       android:icon="@drawable/five"
+        android:title="review" />
+    <item
+        android:id="@+id/add"
+
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="add" />
+
+    <item
+        android:id="@+id/other"
+
+        android:icon="@drawable/six"
+        android:title="other" />
+
+
 
 
 
